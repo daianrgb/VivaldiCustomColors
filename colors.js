@@ -1,3 +1,13 @@
+const customCSS = true; //Disable this if you do not want to delete styles
+if (customCSS) {
+    const browser = document.getElementById("browser");
+    if (browser) {
+        browser.removeAttribute("style");
+    }
+}
+
+
+
 const customVariables = [
     // You can add more color variables here
     "--colorTabBar",
@@ -71,6 +81,8 @@ const customVariables = [
 ];
 
 
+
+
 function openWindow(element) {
     const modal = document.createElement("div");
     modal.style.position = "fixed";
@@ -126,6 +138,7 @@ function openWindow(element) {
 
         input.addEventListener("input", () => {
             element.style.setProperty(prop, input.value);
+            saveStyles();
         });
 
         label.appendChild(input);
@@ -172,3 +185,5 @@ observer.observe(document.body, {
     childList: true,
     subtree: true,
 });
+
+
